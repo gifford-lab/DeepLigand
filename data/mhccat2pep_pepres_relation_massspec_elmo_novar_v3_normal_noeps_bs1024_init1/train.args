@@ -1,0 +1,28 @@
+hyper	False
+batchsize	100
+patience	10
+weightfile	None
+metric_weight	1
+metric	loss
+rweightfile	
+pred_batch	
+trainepoch	50
+infile	/cluster/zeng/code/research/MHCpeptide/data/MHCflurry/dataset/curated_training_data.with_mass_spec.addAbelinNeg.w_pseudoseq.normalized_pluselmo/split1/trial1/test.h5.batch
+datamode	memory
+hyperiter	20
+findbest	False
+retrain	False
+pred_save_as	h5
+train	True
+evalidx	0
+not_remove_old_pred_dir	False
+eval	False
+tunemethod	random
+lweightfile	None
+outdir	/cluster/zeng/code/research/MHCpeptide/data/MHCflurry/dataset/curated_training_data.with_mass_spec.addAbelinNeg.w_pseudoseq.normalized_pluselmo/split1/trial1/pred.curated_training_data.with_mass_spec.addAbelinNeg.w_pseudoseq.normalized_pluselmo.mhccat2pep_pepres_relation_massspec_elmo_novar_v3_normal_noeps_bs1024_init1_bestmodel_split1_trial1.test.h5.batch
+predictwith	best
+topdir	/cluster/zeng/code/research/MHCpeptide/data/MHCflurry/dataset/curated_training_data.with_mass_spec.addAbelinNeg.w_pseudoseq.normalized_pluselmo/split1/trial1
+pred_start_batch	1
+pred_h5_batchsize	50000
+pred_func	pred
+model	mhccat2pep_pepres_relation_massspec_elmo_novar_v3_normal_noeps_bs1024_init1

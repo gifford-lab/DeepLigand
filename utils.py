@@ -1,4 +1,4 @@
-from os.path import join, exists
+from os.path import join, exists, dirname, realpath
 from os import makedirs, system
 import shutil
 
@@ -81,17 +81,19 @@ def mhc_mapper(rawfile, outdir, pseudo_seq_dict, dt='test'):
         print('The following alleles are not recognized:', alleles_not_recognized)
 
 def embed(datadir, outdir):
+    pwd = dirname(realpath(__file__))
     expected_pep_len = 9
-    mapper = 'data/onehot_first20BLOSUM50'
+    mapper = join(pwd, 'data/onehot_first20BLOSUM50')
     elmotag = 'elmo_embeddingds_alltrain.epitope.elmo'
 
-    template = 'python embed_plusrelation_elmo_massspec.py --mhcfile {} --pepfile {} --labelfile {} \
+    template = 'python {}/embed_plusrelation_elmo_massspec.py --mhcfile {} --pepfile {} --labelfile {} \
             --relationfile {} --masslabelfile {} --elmodir {} --elmotag {}\
         --mapper {} --outfileprefix  {} --expected_pep_len {}'
 
 
     dt = 'test'
     cmd =  template.format(
+        pwd,
         join(outdir, dt+'.mhc'),
         join(outdir, dt+'.pep.padded'),
         join(outdir, dt+'.label'),
