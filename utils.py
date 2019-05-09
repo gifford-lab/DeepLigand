@@ -63,22 +63,22 @@ def mhc_mapper(rawfile, outdir, pseudo_seq_dict, dt='test'):
         open(join(outdir, dt+'.mhcname'), 'w') as f6:
 
         for idx, x in enumerate(f):
-            line = x.split(',')
+            line = x.strip().split(',')
             prefix = '>mhc_seq' + str(idx) + '\t'
             mhc = mhc_rename(line[0])
             if mhc not in pseudo_seq_dict:
-                alleles_not_recognized.add(mhc)
+                alleles_not_recognized.add(line[0])
                 continue
 
             f1.write(prefix + pseudo_seq_dict[mhc]+'\n')
             f2.write(prefix + line[1]+'\n')
-            f3.write(prefix + line[3]+'\n')
-            f4.write(prefix + line[4]+'\n')
-            f5.write(prefix + line[2]+'\n')
+            f3.write(prefix + '0'+'\n')
+            f4.write(prefix + '='+'\n')
+            f5.write(prefix + '0'+'\n')
             f6.write(prefix + mhc + '\n')
 
     if len(alleles_not_recognized)>0:
-        print('The following alleles are not recognized:', alleles_not_recognized)
+        raise Exception('The following alleles are not recognized:', alleles_not_recognized)
 
 def embed(datadir, outdir):
     pwd = dirname(realpath(__file__))
