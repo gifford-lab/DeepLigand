@@ -1,7 +1,13 @@
 # DeepLigand
 
+## Data
+
+The 5-fold cross-validation split used in the paper can be downloaded from [here](http://gerv.csail.mit.edu/deepligand_CVdata/). The DeepLigand model provided in this repository is trained on all the five folds combined.
+
+
 ## Environment setup
-We provide a conda environment in which all necessary packages have been installed. To create and activate this enviroment:
+
+We provide a [Conda](https://docs.conda.io/en/latest/) environment in which all necessary Python packages have been installed. To create and activate this enviroment:
 
 ```
 conda env create -f environment.yml
