@@ -288,7 +288,7 @@ class MyTrainableClass(Trainable):
 
     def _save(self, checkpoint_dir):
         path = join(checkpoint_dir, 'checkpoint.pt')
-        torch.save(self.net.state_dict(), path)
+        torch.save(self.net, path)
 
         optim_path = join(checkpoint_dir, 'optim.pt')
         torch.save({'optimizer': self.optimizer.state_dict()}, optim_path)
@@ -296,7 +296,7 @@ class MyTrainableClass(Trainable):
         return path
 
     def _restore(self, checkpoint_path):
-        self.net.load_state_dict(torch.load(checkpoint_path))
+        self.net = torch.load(checkpoint_path)
         self.optimizer = optim.Adam(self.net.parameters(), lr=self.config['adam_lr'], betas=(self.config['adam_beta1'], self.config['adam_beta2']))
         self.optimizer.load_state_dict(torch.load(join(dirname(checkpoint_path), 'optim.pt'))['optimizer'])
 

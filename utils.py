@@ -65,7 +65,8 @@ def mhc_mapper(rawfile, outdir, pseudo_seq_dict, dt='test'):
         for idx, x in enumerate(f):
             line = x.strip().split(',')
             prefix = '>mhc_seq' + str(idx) + '\t'
-            mhc = mhc_rename(line[0])
+            #mhc = mhc_rename(line[0])
+            mhc = line[0]
             if mhc not in pseudo_seq_dict:
                 alleles_not_recognized.add(line[0])
                 continue
