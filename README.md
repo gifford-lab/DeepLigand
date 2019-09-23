@@ -7,7 +7,13 @@ The 5-fold cross-validation split used in the paper can be downloaded from [here
 
 ## Environment setup
 
-We provide a [Conda](https://docs.conda.io/en/latest/) environment in which all necessary Python packages have been installed. To create and activate this enviroment:
+#### Prerequisites
+
+- R > 3.3
+- CUDA 8.0 with cudnn 5.1
+
+#### Conda environment
+With the above prerequisites installed, install and activate a [Conda](https://docs.conda.io/en/latest/) environment with all necessary Python packages by:
 
 ```
 conda env create -f environment.yml
