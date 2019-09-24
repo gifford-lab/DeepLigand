@@ -40,3 +40,13 @@ python preprocess.py -f $INFILE -o $OUTDIR
 python main.py -p $OUTDIR/test.h5.batch -o $OUTDIR/prediction 
 ```
 - `OUTDIR`: output directory
+
+The resulting predictions will be saved as HDF5 dataset under `$OUTDIR/prediction` in batches. Below is an example of access the dataset in the first batch:
+
+```
+import h5py
+with h5py.File('$OUTDIR/prediction/h5.batch1', 'r') as f:
+  pred = f['pred'][()]
+```
+
+The dataset (`pred`) has three columns. The first two columns correspond to the predicted mean and variance (2nd column) of binding affinity between the input peptide and MHC allele. The third column is the predicted probablity that the input peptide is a natural ligand of the input MHC allele.
