@@ -2,7 +2,8 @@
 
 ## Data
 
-The 5-fold cross-validation split used in the paper can be downloaded from [here](http://gerv.csail.mit.edu/deepligand_CVdata/). The DeepLigand model provided in this repository is trained on all the five folds combined.
+The 5-fold cross-validation split used in the paper can be downloaded from [here](https://www.dropbox.com/s/ui6rtlwmwvwpkxz/deepligand_CVdata.zip?dl=0
+). The DeepLigand model provided in this repository is trained on all the five folds combined.
 
 
 ## Environment setup
